@@ -1,0 +1,71 @@
+@spacing-xsmall: 2px;
+@spacing-small: 10px;
+@spacing-default: 20px;
+@spacing-large: 40px;
+
+.vspace-variant(@size) {
+  & > * {
+    margin-top: @size;
+    margin-bottom: @size;
+  }
+}
+
+.hspace-variant(@size) {
+  & > * {
+    margin-left: @size / 2;
+    margin-right: @size / 2;
+  }
+}
+
+.vspace {
+  .vspace-variant(@spacing-default);
+
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.vspace-xsmall {
+  .vspace-variant(@spacing-xsmall);
+}
+
+.vspace-small {
+  .vspace-variant(@spacing-small);
+}
+
+.vspace-large {
+  .vspace-variant(@spacing-large);
+}
+
+.hspace {
+  .hspace-variant(@spacing-default);
+
+  > :first-child {
+    margin-left: 0;
+  }
+  > :last-child {
+    margin-right: 0;
+  }
+}
+
+.hspace-xsmall {
+  .hspace-variant(@spacing-xsmall);
+}
+
+.hspace-small {
+  .hspace-variant(@spacing-small);
+}
+
+.hspace-large {
+  .hspace-variant(@spacing-large);
+}
+
+@media (min-width: @screen-sm-min) {
+  .vspace-clear-sm > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

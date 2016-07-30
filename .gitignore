@@ -1,0 +1,11 @@
+/dist
+/tmp
+
+npm-debug.log
+
+/typings
+/node_modules
+
+
+/e2e/*.js
+/e2e/*.map

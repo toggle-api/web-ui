@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="vspace">
+    <h1>Toggle: {{toggle?.Id}}</h1>
+    <table class="table" *ngIf="toggle">
+      <tbody>
+        <tr>
+          <th>Description</th>
+          <td>{{toggle.Description}}</td>
+        </tr>
+        <tr>
+          <th>Versions</th>
+          <td>{{toggle.EnableInVersions || 'all'}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Current Value</h2>
+    <toggle-rollout [toggle]="toggle"></toggle-rollout>
+  </div>
+</div>

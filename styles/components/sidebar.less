@@ -1,0 +1,25 @@
+.sidebar {
+  width: 300px;
+  background: @gray-darker;
+  color: @gray-lighter;
+
+  & > * {
+    display: block;
+    padding: 10px 15px;
+  }
+  & > a {
+    //border-bottom: solid 1px @gray-light;
+    color: @gray-lighter;
+    text-decoration: none;
+
+    &:hover {
+      background: @gray-light;
+      color: @gray-darker;
+    }
+
+    &.active {
+      background: #0075c7;
+      color: @gray-lighter;
+    }
+  }
+}

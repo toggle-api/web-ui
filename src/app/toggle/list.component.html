@@ -1,0 +1,23 @@
+<div class="vspace">
+  <h1>Toggles</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Versions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let toggle of toggles" [routerLink]="['/toggles', toggle.Id]" class="link">
+        <td>{{toggle.Id}}</td>
+        <td>
+          <toggle-rollout [toggle]="toggle"></toggle-rollout>
+        </td>
+        <td>{{toggle.Description}}</td>
+        <td>{{toggle.EnableInVersions || 'all'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
