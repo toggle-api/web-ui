@@ -1,6 +1,12 @@
 <div class="row">
   <div class="vspace">
-    <h1>Toggle: {{toggle?.Id}}</h1>
+    <h1>
+      Toggle: {{toggle?.Id}}
+      <a routerLink="edit" class="pull-right btn btn-primary">
+        <i class="glyphicon glyphicon-pencil"></i>
+        Edit
+      </a>
+    </h1>
     <table class="table" *ngIf="toggle">
       <tbody>
         <tr>

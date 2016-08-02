@@ -1,22 +1,22 @@
-import { ToggleAPIClient } from './client';
+import { APIClient, Client } from './client';
 import { Toggle, ToggleSelection } from './toggle';
 import { PublicAuthenticator } from './authentication/public_authenticator';
 
 export class UserToggles {
-  private client: ToggleAPIClient;
+  private client: Client;
   private initialLoad: Promise<void>;
   private initialLoadComplete: boolean;
   private toggleSelections: {[key: string]: string|boolean;};
 
-  constructor(private publicKey: string,
+  constructor(private host: string,
+              private publicKey: string,
               private userId: string,
               private version?: string,
               private anonymous?: boolean) {
-    this.client = new ToggleAPIClient(new PublicAuthenticator(publicKey));
-    this.loadToggles();
+    this.client = new APIClient(host, new PublicAuthenticator(publicKey));
   }
 
-  waitForLoad(): Promise<UserToggles> {
+  load(): Promise<UserToggles> {
     return this.initialLoad.then(() => this);
   }
 
