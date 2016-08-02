@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { ToggleService } from './toggle.service';
 import { ToggleRolloutComponent } from './rollout.component';
 import { Toggle } from 'toggle-api';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   moduleId: module.id,
   templateUrl: 'detail.component.html',
-  directives: [ToggleRolloutComponent]
+  directives: [ToggleRolloutComponent, ROUTER_DIRECTIVES]
 })
 export class ToggleDetailComponent implements OnInit, OnDestroy {
   errorMessage: string;
@@ -32,7 +32,7 @@ export class ToggleDetailComponent implements OnInit, OnDestroy {
   }
 
   getToggle(id: string) {
-    this.toggleService.getToggle(id).subscribe(toggle => this.toggle = toggle, error => this.errorMessage = <any>error)
+    this.toggleService.getToggle(id).subscribe(toggle => this.toggle = toggle, error => this.errorMessage = <any>error);
   }
 }
 

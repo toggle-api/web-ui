@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Toggle, ToggleAPIClient, JWTAuthenticator } from 'toggle-api';
+import { Toggle, APIClient, JWTAuthenticator } from 'toggle-api';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ToggleService {
-  private client: ToggleAPIClient;
+  private client: APIClient;
 
   constructor() {
-    this.client = new ToggleAPIClient(new JWTAuthenticator('jwt_token'));
+    this.client = new APIClient('http://api.toggleapi.com/', new JWTAuthenticator('jwt_token'));
   }
 
   getToggles(): Observable<Toggle[]> {
@@ -17,6 +17,10 @@ export class ToggleService {
 
   getToggle(id: string): Observable<Toggle> {
     return this.getToggles().map(this.matchToggle(id));
+  }
+
+  updateToggle(toggle: Toggle): Promise<Toggle> {
+    return this.client.updateToggle(toggle);
   }
 
   private matchToggle(id: string) {

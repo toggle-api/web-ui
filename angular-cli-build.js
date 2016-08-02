@@ -19,7 +19,8 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'ng2-dropdown/*.+(js|js.map)',
-      'toggle-api/**/*.+(ts|js|js.map)'
+      'toggle-api/**/*.+(ts|js|js.map)',
+      'bootstrap/fonts/*.*',
     ]
   });
 

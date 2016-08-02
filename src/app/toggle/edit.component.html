@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="vspace">
+    <h1>Edit Toggle: {{toggle?.Id}}</h1>
+    <div *ngIf="submitted">
+      Updating...
+    </div>
+    <form *ngIf="active && !submitted" (ngSubmit)="onSubmit()" #toggleForm="ngForm" class="form vspace">
+      <div class="alert alert-danger" *ngIf="error">
+        {{ error }}
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" [(ngModel)]="toggle.Description" name="Description" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="versions">Versions</label>
+        <input id="versions" [(ngModel)]="toggle.Versions" name="Versions" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="true_percent">Rollout</label>
+        <input id="true_percent" [(ngModel)]="truePercent" (change)="changeTruePercent()" name="truePercent" type="range" min="0" max="100" class="form-control">
+        <div style="margin: 0 20px;">
+          <toggle-rollout [toggle]="toggle"></toggle-rollout>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

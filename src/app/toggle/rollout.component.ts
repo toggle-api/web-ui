@@ -49,7 +49,7 @@ export class ToggleRolloutComponent {
         Value: toggle.Value,
         Amount: localAmount
       };
-    }).reverse();
+    });
   }
 
   private getOptions(): ToggleOptionData[] {
