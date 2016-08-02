@@ -1,0 +1,26 @@
+<div class="layout-app">
+  <div class="layout-app-sidebar sidebar">
+    <span>
+      <label>Environment</label>
+      <span dropdown class="dropdown">
+        <button class="btn btn-block btn-default" dropdown-open>
+          Production <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>Production</li>
+          <li>Stage</li>
+          <li>Development</li>
+        </ul>
+      </span>
+    </span>
+    <a routerLink="/overview" routerLinkActive="active">Overview</a>
+    <a routerLink="/toggles" routerLinkActive="active">Toggles</a>
+    <a routerLink="/users" routerLinkActive="active">Users</a>
+    <a routerLink="/groups" routerLinkActive="active">Groups</a>
+  </div>
+  <div class="layout-app-content">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
